@@ -1,6 +1,8 @@
 package belp.data.common
 
 import belp.base.injection.scope.ApplicationScope
+import belp.data.repository.UserRepository
+import belp.data.repository.UserRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -14,8 +16,13 @@ class RepositoryModule {
 
     @Provides
     @ApplicationScope
-    fun serverServices(retrofit: Retrofit) : ServerServices {
+    fun serverServices(retrofit: Retrofit): ServerServices {
         return retrofit.create(ServerServices::class.java)
     }
 
+    @Provides
+    @ApplicationScope
+    fun userRepository(serverServices: ServerServices): UserRepository {
+        return UserRepositoryImpl(serverServices)
+    }
 }

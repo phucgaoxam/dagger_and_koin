@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Modifier
 import java.util.*
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 
 /**
  * Created by vophamtuananh on 3/13/18.
@@ -25,24 +26,24 @@ import java.util.concurrent.TimeUnit
 
 @Module(includes = [(AppContextModule::class), (AppModule::class)])
 class NetworkModule {
-
     companion object {
         private const val TIME_OUT = 10
         private const val KEY_CONTENT_TYPE = "Content-Type"
         private const val KEY_AUTHORIZATION = "Authorization"
         private const val VALUE_CONTENT_TYPE = "application/json"
-        private const val DEV_DOMAIN = "http://13.229.245.71"
-        private const val PRO_DOMAIN = "http://13.228.100.112"
+        private const val PRO_DOMAIN = "http://chathub.saigontechnology.vn/"
+        private const val TENANT_TOKEN = "ef0df4b9841a43a2ac8f2fd0b63c7bd7"
+        private const val SIGNAL_R_DOMAIN = "http://chathub.saigontechnology.vn/signalr-myChatHub"
     }
 
     @Provides
     @ApplicationScope
-    fun retrofit(baseUrl: String, okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    fun retrofit(@Named("baseUrl") baseUrl: String, okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         val builder = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .baseUrl(baseUrl)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         return builder.build()
     }
 
@@ -56,9 +57,11 @@ class NetworkModule {
 
     @Provides
     @ApplicationScope
-    fun okHttpClient(context: Context,
-                     sharePreferenceManager: SharePreferenceManager,
-                     interceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun okHttpClient(
+        context: Context,
+        sharePreferenceManager: SharePreferenceManager,
+        interceptor: HttpLoggingInterceptor
+    ): OkHttpClient {
         val okBuilder = OkHttpClient.Builder()
         okBuilder.addInterceptor(interceptor)
         okBuilder.addInterceptor { chain ->
@@ -91,8 +94,9 @@ class NetworkModule {
     }
 
     @Provides
+    @Named("baseUrl")
     fun baseUrl(debug: Boolean): String {
-        return if (debug) DEV_DOMAIN else PRO_DOMAIN
+        return PRO_DOMAIN
     }
 
     @Provides
@@ -100,4 +104,9 @@ class NetworkModule {
         return true
     }
 
+    @Provides
+    @Named("tenantToken")
+    fun getTenantToken(): String {
+        return TENANT_TOKEN
+    }
 }

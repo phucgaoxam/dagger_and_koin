@@ -33,5 +33,4 @@ abstract class BaseDialog<T : ViewDataBinding>(context: Context) : Dialog(contex
         super.dismiss()
         setOnCancelListener(null)
     }
-
 }

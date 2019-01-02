@@ -1,9 +1,11 @@
 package belp.data.common
 
 import belp.base.injection.scope.ApplicationScope
+import belp.data.repository.UserRepository
 import com.base.imageloader.ImageLoader
 import com.base.injection.module.ImageLoaderModule
 import dagger.Component
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -17,4 +19,9 @@ interface AppComponent {
     fun imageLoader(): ImageLoader
 
     fun sharePreferenceManager(): SharePreferenceManager
+
+    fun userRepository(): UserRepository
+
+    @Named("tenantToken")
+    fun getToken(): String
 }

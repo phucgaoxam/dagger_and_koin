@@ -43,7 +43,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
 
     protected lateinit var mViewDataBinding: B
 
-    private var mViewModel: VM? = null
+    protected var mViewModel: VM? = null
 
     private var mCapturedPath: String? = null
 
@@ -58,9 +58,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
-    protected open fun getViewModelClass(): Class<VM>? {
-        return null
-    }
+    abstract fun getViewModelClass(): Class<VM>?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (showFullScreen()) {
@@ -242,11 +240,11 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
         decorView.systemUiVisibility = uiOptions
     }
 
-    private fun openCamera(fileName: String? = null) {
+    protected fun openCamera(fileName: String? = null) {
         mCapturedPath = DeviceUtil.openCamera(this, fileName)
     }
 
-    private fun openGallery() {
+    protected fun openGallery() {
         DeviceUtil.openGallery(this)
     }
 

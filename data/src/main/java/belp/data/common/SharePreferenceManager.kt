@@ -13,7 +13,6 @@ class SharePreferenceManager(app: Context) {
         private const val SHARED_PREF_NAME = "com.myapplication.base"
 
         private const val KEY_ACCESS_TOKEN = "access_token"
-
     }
 
     private val sharedPreferences by lazy(LazyThreadSafetyMode.NONE) {
@@ -30,5 +29,4 @@ class SharePreferenceManager(app: Context) {
         editor.body()
         editor.apply()
     }
-
 }
