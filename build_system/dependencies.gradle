@@ -1,0 +1,119 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    // Android
+    archLifecycleVersion = '1.1.0'
+    androidSupportLibraryVersion = '27.1.1'
+    constraintLayoutVersion = '1.1.0-beta6'
+    roomVersion = '1.0.0'
+
+    // Network
+    okHttpVersion = '3.9.0'
+    retrofit2Version = '2.3.0'
+    gsonVersion = '2.8.1'
+
+    // Dagger 2
+    dagger2Version = '2.15'
+
+    // Rx Kotlin
+    rxKotlin2Version = '2.2.0'
+    rxAndroidVersion = '2.0.2'
+
+    // FireBase service
+    firebaseVersion = '15.0.0'
+    firebaseUIVersion = '3.2.2'
+
+    // google service
+    googleServiceVersion = '15.0.0'
+
+    // Facebook
+    facebookVersion = '4.30.0'
+
+    // Instrumentation
+    leakCanaryVersion = '1.5.1'
+
+    // Testing
+    junitVersion = '4.12'
+    runnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+
+    // Kotlin
+    kotlinVersion = '1.2.31'
+    kotlinBindingCompilerVersion = '3.0.1'
+
+    // rounded image view
+    roundedImageViewVersion = '2.3.0'
+
+    // gif image view
+    gifImageViewVersion = '1.2.11'
+
+    // multi dex
+    multiDexVersion = '1.0.3'
+
+    commonDependencies = [
+            rxKotlin2                   : "io.reactivex.rxjava2:rxkotlin:${rxKotlin2Version}",
+            rxAndroid                   : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+
+            dagger2                     : "com.google.dagger:dagger:${dagger2Version}",
+            dagger2Compiler             : "com.google.dagger:dagger-compiler:${dagger2Version}",
+
+            supportAppCompatV7          : "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
+            supportDesign               : "com.android.support:design:${androidSupportLibraryVersion}",
+            supportV13                  : "com.android.support:support-v13:${androidSupportLibraryVersion}",
+            supportAnnotation           : "com.android.support:support-annotations:${androidSupportLibraryVersion}",
+            supportCardView             : "com.android.support:cardview-v7:${androidSupportLibraryVersion}",
+            supportRecyclerView         : "com.android.support:recyclerview-v7:${androidSupportLibraryVersion}",
+            exifinterface               : "com.android.support:exifinterface:${androidSupportLibraryVersion}",
+            constraintLayout            : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+
+            archLifecycleRuntime        : "android.arch.lifecycle:runtime:${archLifecycleVersion}",
+            archLifecycleExtensions     : "android.arch.lifecycle:extensions:${archLifecycleVersion}",
+            archLifecycleReactiveStreams: "android.arch.lifecycle:reactivestreams:${archLifecycleVersion}",
+            archLifecycleCompiler       : "android.arch.lifecycle:compiler:${archLifecycleVersion}",
+
+            room                        : "android.arch.persistence.room:runtime:${roomVersion}",
+            roomCompiler                : "android.arch.persistence.room:compiler:${roomVersion}",
+
+            okHttp                      : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpInterceptor           : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+
+            retrofit2                   : "com.squareup.retrofit2:retrofit:${retrofit2Version}",
+            retrofitRxAdapter           : "com.squareup.retrofit2:adapter-rxjava2:${retrofit2Version}",
+            retrofitConverter           : "com.squareup.retrofit2:converter-gson:${retrofit2Version}",
+
+            gson                        : "com.google.code.gson:gson:${gsonVersion}",
+
+            facebook                    : "com.facebook.android:facebook-android-sdk:${facebookVersion}",
+
+            firebaseAuth                : "com.google.firebase:firebase-auth:${firebaseVersion}",
+            firebaseDatabase            : "com.google.firebase:firebase-database:${firebaseVersion}",
+            firebaseDatabaseUI          : "com.firebaseui:firebase-ui-database:${firebaseUIVersion}",
+
+            kotlin                      : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion",
+
+            roundedImageView            : "com.makeramen:roundedimageview:${roundedImageViewVersion}",
+
+            gifImageView                : "pl.droidsonroids.gif:android-gif-drawable:${gifImageViewVersion}",
+
+            multiDex                    : "com.android.support:multidex:${multiDexVersion}",
+
+            googleAuth                  : "com.google.android.gms:play-services-auth:${googleServiceVersion}"
+    ]
+
+    commonTestDependencies = [
+            junit   : "junit:junit:${junitVersion}",
+            runner  : "com.android.support.test:runner:${runnerVersion}",
+            espresso: "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            archTest: "android.arch.core:core-testing:${archLifecycleVersion}"
+    ]
+
+    developmentDependencies = [
+            leakcanary    : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            leakcanaryNoOp: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
+    ]
+}

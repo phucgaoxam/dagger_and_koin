@@ -1,0 +1,14 @@
+<resources>
+    <string name="error">Error</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="warning">Warning</string>
+    <string name="success">Success</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">NO</string>
+    <string name="server_error">Server Connection Failed. Please try again later.</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_network">Unable to connect with the internet.\nCheck your internet and try again.</string>
+</resources>
