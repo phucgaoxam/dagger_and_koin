@@ -9,7 +9,7 @@ import javax.inject.Named
 /**
  * Created by BelP on 09/12/2018.
  */
-class MainActivity : belp.myapplication.BaseInjectingActivity<MainActivityBinding, MainViewModel, MainComponent>(), MainView {
+class MainActivity : BaseInjectingActivity<MainActivityBinding, MainViewModel, MainComponent>(), MainView {
     override fun getViewModelClass(): Class<MainViewModel>? {
         return MainViewModel::class.java
     }
