@@ -10,11 +10,12 @@ import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import belp.base.R
+import java.io.Serializable
 
 /**
  * Created by vophamtuananh on 1/7/18.
  */
-abstract class BaseDialog<T : ViewDataBinding>(context: Context) : Dialog(context) {
+abstract class BaseDialog<T : ViewDataBinding>(context: Context) : Dialog(context), Serializable {
 
     protected lateinit var mViewDataBinding: T
 

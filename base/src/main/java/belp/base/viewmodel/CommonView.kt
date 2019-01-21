@@ -1,5 +1,6 @@
 package belp.base.viewmodel
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 
 /**

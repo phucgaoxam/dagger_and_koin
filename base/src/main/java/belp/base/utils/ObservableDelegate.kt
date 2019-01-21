@@ -1,4 +1,4 @@
-package com.base.utils
+package belp.base.utils
 
 import androidx.databinding.ObservableField
 import kotlin.reflect.KProperty

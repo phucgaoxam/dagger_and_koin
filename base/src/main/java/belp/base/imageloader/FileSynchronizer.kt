@@ -1,4 +1,4 @@
-package com.base.imageloader
+package belp.base.imageloader
 
 import java.util.concurrent.ConcurrentHashMap
 

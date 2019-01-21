@@ -7,7 +7,6 @@ import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.Uri
 import android.provider.MediaStore
-import com.base.utils.FileUtil
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream

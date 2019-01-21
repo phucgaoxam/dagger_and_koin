@@ -8,7 +8,7 @@ import android.view.View
 import androidx.appcompat.widget.LinearLayoutCompat
 import belp.base.R
 import com.base.utils.DisplayUtil
-import com.base.utils.RippleUtil
+import belp.base.utils.RippleUtil
 
 class RippleLinearLayout : LinearLayoutCompat {
 

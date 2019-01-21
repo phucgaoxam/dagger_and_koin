@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.FrameLayout
 import belp.base.R
 import com.base.utils.DisplayUtil
-import com.base.utils.RippleUtil
+import belp.base.utils.RippleUtil
 
 class RippleFrameLayout : FrameLayout {
 

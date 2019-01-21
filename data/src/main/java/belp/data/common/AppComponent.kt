@@ -3,7 +3,7 @@ package belp.data.common
 import belp.base.injection.scope.ApplicationScope
 import belp.data.repository.UserRepository
 import com.base.imageloader.ImageLoader
-import com.base.injection.module.ImageLoaderModule
+import belp.base.injection.module.ImageLoaderModule
 import dagger.Component
 import javax.inject.Named
 import javax.inject.Singleton
@@ -11,7 +11,6 @@ import javax.inject.Singleton
 /**
  * Created by vophamtuananh on 3/13/18.
  */
-@Singleton
 @Component(modules = [ImageLoaderModule::class, RepositoryModule::class, AppModule::class])
 @ApplicationScope
 interface AppComponent {

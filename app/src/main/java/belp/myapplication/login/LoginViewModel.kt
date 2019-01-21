@@ -1,7 +1,7 @@
 package belp.myapplication.login
 
 import android.util.Log
-import androidx.databinding.ObservableField
+import android.view.View
 import belp.base.viewmodel.ActivityViewModel
 import belp.data.common.SharePreferenceManager
 import belp.data.domain.AppDomain
@@ -9,17 +9,17 @@ import belp.data.model.Device
 import belp.data.model.LoginRequest
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Created by BelP on 09/12/2018.
  */
 class LoginViewModel : ActivityViewModel() {
-    val userName = ObservableField("")
-    val password = ObservableField("")
 
-    private lateinit var mAppDomain: AppDomain
     private lateinit var mTenantToken: String
     private lateinit var mDevice: Device
+    private lateinit var mAppDomain: AppDomain
     private lateinit var mSharedManager: SharePreferenceManager
 
     fun setAttributes(
@@ -39,22 +39,16 @@ class LoginViewModel : ActivityViewModel() {
         view?.onRegister()
     }
 
-    fun onLogin() {
+    fun onLogin(loginRequest: LoginRequest) {
         val view: LoginView? = view()
-
+        Log.e("login", "login")
+        loginRequest.tenantToken = mTenantToken
+        loginRequest.device = mDevice
         view?.let {
             addDisposable(
-                mAppDomain.login(
-                    LoginRequest(
-                        userName.get()!!,
-                        password.get()!!,
-                        true,
-                        mTenantToken,
-                        mDevice
-                    )
-                ).subscribeOn(
-                    Schedulers.io()
-                ).observeOn(AndroidSchedulers.mainThread())
+                mAppDomain.login(loginRequest)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { view.showLoading() }
                     .doFinally { view.hideLoading() }
                     .subscribe(
@@ -62,8 +56,13 @@ class LoginViewModel : ActivityViewModel() {
                             view.onLoginSuccess(result)
                             mSharedManager.accessToken = result.accessToken
                         },
-                        { error -> view.showError(error) })
+                        { error -> view.showError(error) }
+                    )
             )
         }
+    }
+
+    fun onRemember(view: View, value: Boolean) {
+
     }
 }

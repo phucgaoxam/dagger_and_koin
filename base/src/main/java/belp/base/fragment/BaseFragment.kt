@@ -16,9 +16,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import belp.base.R
 import belp.base.activity.BaseActivity
-import com.base.fragment.WaitThread
 import belp.base.viewmodel.CommonView
-import com.base.viewmodel.FragmentViewModel
+import belp.base.viewmodel.FragmentViewModel
 
 /**
  * Created by vophamtuananh on 1/7/18.
@@ -43,9 +42,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : FragmentViewModel> : Fragm
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
-    protected open fun getViewModelClass(): Class<VM>? {
-        return null
-    }
+    protected abstract fun getViewModelClass(): Class<VM>?
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

@@ -6,7 +6,7 @@ import android.os.Build
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import belp.base.R
-import com.base.utils.RippleUtil
+import belp.base.utils.RippleUtil
 
 class RippleConstraintLayout : ConstraintLayout {
 

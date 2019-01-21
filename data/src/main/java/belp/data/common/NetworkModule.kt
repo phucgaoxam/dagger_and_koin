@@ -1,10 +1,11 @@
 package belp.data.common
 
 import android.content.Context
+import android.util.Log
 import belp.base.injection.module.AppContextModule
-import belp.base.injection.scope.ApplicationScope
 import belp.data.R
-import com.base.exception.NoConnectionException
+import belp.base.exception.NoConnectionException
+import belp.base.injection.scope.ApplicationScope
 import com.base.utils.NetworkUtil
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -50,6 +51,7 @@ class NetworkModule {
     @Provides
     @ApplicationScope
     fun httpLoggingInterceptor(debug: Boolean): HttpLoggingInterceptor {
+        Log.e("init", "init httpInterceptor")
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = if (debug) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         return interceptor

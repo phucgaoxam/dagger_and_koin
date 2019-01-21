@@ -2,7 +2,7 @@ package belp.base.fragment
 
 import android.content.Context
 import androidx.databinding.ViewDataBinding
-import com.base.viewmodel.FragmentViewModel
+import belp.base.viewmodel.FragmentViewModel
 
 /**
  * Created by vophamtuananh on 1/7/18.

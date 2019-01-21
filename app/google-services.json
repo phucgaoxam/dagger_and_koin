@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "30333216829",
+    "firebase_url": "https://demomlkit-46951.firebaseio.com",
+    "project_id": "demomlkit-46951",
+    "storage_bucket": "demomlkit-46951.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30333216829:android:3c98cc39e0182474",
+        "android_client_info": {
+          "package_name": "belp.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30333216829-8l5s6uheah5bssppbfhdvlh2oqmonisp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "belp.myapplication",
+            "certificate_hash": "f77198e5bff87e33188eac9be7be18079e21597d"
+          }
+        },
+        {
+          "client_id": "30333216829-51nl7pqvg4071k29eh86abppcq74fva3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzSu8ncg7Rt6KOLHGjJud026SDPuewP8k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30333216829-51nl7pqvg4071k29eh86abppcq74fva3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,9 @@
-package com.base.imageloader
+package belp.base.imageloader
 
 import android.content.Context
 import android.graphics.Bitmap
 import belp.base.utils.BitmapUtil
-import com.base.utils.FileUtil
+import belp.base.utils.FileUtil
 import java.io.*
 
 /**

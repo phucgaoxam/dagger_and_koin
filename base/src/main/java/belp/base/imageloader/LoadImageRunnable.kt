@@ -2,6 +2,7 @@ package com.base.imageloader
 
 import android.content.Context
 import android.graphics.Bitmap
+import belp.base.imageloader.FileCacher
 import belp.base.imageloader.LoadInformationKeeper
 import belp.base.utils.BitmapUtil
 import java.io.File

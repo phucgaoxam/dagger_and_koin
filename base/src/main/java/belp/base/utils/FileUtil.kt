@@ -1,4 +1,4 @@
-package com.base.utils
+package belp.base.utils
 
 import android.content.Context
 import android.net.Uri
@@ -34,7 +34,7 @@ class FileUtil {
         }
 
         fun getOutputMediaFile(context: Context, fileName: String?): File? {
-            val mediaStorageDir = FileUtil.getDiskCacheDir(context)
+            val mediaStorageDir = getDiskCacheDir(context)
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null

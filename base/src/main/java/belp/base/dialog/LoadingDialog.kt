@@ -28,7 +28,7 @@ class LoadingDialog(context: Context) : BaseDialog<DialogLoadingBinding>(context
 
     fun showWithListener(onLoadingDialogListener: OnLoadingDialogListener? = null) {
         mOnLoadingDialogListener = onLoadingDialogListener
-        super.show()
+      //  super.show()
     }
 
     interface OnLoadingDialogListener {

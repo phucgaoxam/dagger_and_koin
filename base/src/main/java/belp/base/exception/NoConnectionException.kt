@@ -1,4 +1,4 @@
-package com.base.exception
+package belp.base.exception
 
 /**
  * Created by vophamtuananh on 2/27/18.

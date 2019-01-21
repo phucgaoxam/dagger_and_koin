@@ -1,4 +1,4 @@
-package com.base.imageloader
+package belp.base.imageloader
 
 import android.graphics.drawable.BitmapDrawable
 

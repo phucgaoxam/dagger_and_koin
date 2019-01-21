@@ -19,19 +19,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import belp.base.R
+import belp.base.dialog.BaseDialogFragment
 import belp.base.dialog.ConfirmDialog
 import belp.base.dialog.InformDialog
 import belp.base.dialog.LoadingDialog
-import com.base.exception.ManuallyException
-import com.base.exception.NoConnectionException
-import com.base.utils.DeviceUtil
-import com.base.utils.DeviceUtil.Companion.CAMERA_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.GALLERY_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.PERMISSION_CALL_PHONE_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.PERMISSION_CAMERA_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.PERMISSION_LOCATION_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.PERMISSION_READ_EXTERNAL_REQUEST_CODE
-import com.base.utils.DeviceUtil.Companion.PERMISSION_WRITE_STORAGE_REQUEST_CODE
+import belp.base.exception.ManuallyException
+import belp.base.exception.NoConnectionException
+import belp.base.utils.DeviceUtil
+import belp.base.utils.DeviceUtil.Companion.CAMERA_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.GALLERY_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.PERMISSION_CALL_PHONE_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.PERMISSION_CAMERA_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.PERMISSION_LOCATION_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.PERMISSION_READ_EXTERNAL_REQUEST_CODE
+import belp.base.utils.DeviceUtil.Companion.PERMISSION_WRITE_STORAGE_REQUEST_CODE
 import belp.base.viewmodel.ActivityViewModel
 import belp.base.viewmodel.CommonView
 import retrofit2.HttpException
@@ -55,10 +56,16 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
 
     private var mConfirmDialog: ConfirmDialog? = null
 
+    private var mBaseDialogFragment: BaseDialogFragment? = null
+
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
     abstract fun getViewModelClass(): Class<VM>?
+
+    open fun initViewModel() {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (showFullScreen()) {
@@ -67,6 +74,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
 
         super.onCreate(savedInstanceState)
         mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
+        initViewModel()
         if (getViewModelClass() != null)
             mViewModel = ViewModelProviders.of(this).get(getViewModelClass()!!)
         mViewModel?.onAttached(this)
@@ -201,6 +209,9 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
                 )
             }
         }
+
+        val mBaseDialogFragment = BaseDialogFragment.newInstance(mInformDialog!!)
+        mBaseDialogFragment.show(supportFragmentManager, "error")
     }
 
     override fun showError(throwable: Throwable) {
@@ -211,6 +222,8 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
                 description = getThrowableMessage(throwable)
             )
         }
+        val mBaseDialogFragment = BaseDialogFragment.newInstance(mInformDialog!!)
+        mBaseDialogFragment.show(supportFragmentManager, "error")
     }
 
     private fun getThrowableMessage(e: Throwable): String {
@@ -290,10 +303,13 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
             return
 
         mLoadingDialog?.showWithListener(onLoadingDialogListener)
+        mBaseDialogFragment = BaseDialogFragment.newInstance(mLoadingDialog!!)
+        mBaseDialogFragment?.show(supportFragmentManager, "loading")
     }
 
     private fun hideLoadingDialog() {
         mLoadingDialog?.dismiss()
+        mBaseDialogFragment?.dismiss()
     }
 
     private fun getInformDialog(): InformDialog {

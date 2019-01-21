@@ -6,7 +6,7 @@ import android.os.Build
 import android.util.AttributeSet
 import androidx.cardview.widget.CardView
 import belp.base.R
-import com.base.utils.RippleUtil
+import belp.base.utils.RippleUtil
 
 class RippleCardView : CardView {
 

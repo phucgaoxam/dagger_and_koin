@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import belp.base.R
-import com.base.utils.RippleUtil
+import belp.base.utils.RippleUtil
 
 class RippleButton : AppCompatButton {
 

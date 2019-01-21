@@ -2,7 +2,6 @@ package belp.base.imageloader
 
 import android.graphics.Bitmap
 import belp.base.R
-import com.base.imageloader.BitmapCallback
 import com.base.imageloader.ILoadingImageView
 import java.lang.ref.WeakReference
 

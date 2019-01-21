@@ -1,7 +1,6 @@
 package belp.base.recyclerview
 
 import androidx.recyclerview.widget.DiffUtil
-import com.base.recyclerview.ItemComparator
 
 /**
  * Created by vophamtuananh on 1/12/18.

@@ -1,4 +1,4 @@
-package com.base.utils
+package belp.base.utils
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
@@ -14,14 +14,16 @@ class RippleUtil {
         fun getRippleStrokeDrawable(normalColor: Int, rippleColor: Int, cornerRadius: Float, strokeWidth: Int, strokeColor: Int): Drawable {
             return RippleDrawable(ColorStateList.valueOf(rippleColor),
                     getStrokeDrawable(normalColor, cornerRadius, strokeWidth, strokeColor),
-                    getDrawable(rippleColor , cornerRadius))
+                    getDrawable(rippleColor , cornerRadius)
+            )
         }
 
         fun getRippleDrawable(normalColor: Int, rippleColor: Int, cornerRadius: Float, leftTopCornerRadius: Float,
                               rightTopCornerRadius: Float, leftBottomCornerRadius: Float, rightBottomCornerRadius: Float): Drawable {
             return RippleDrawable(ColorStateList.valueOf(rippleColor),
                     getDrawable(normalColor, cornerRadius, leftTopCornerRadius, rightTopCornerRadius, leftBottomCornerRadius, rightBottomCornerRadius),
-                    getDrawable(rippleColor, cornerRadius, leftTopCornerRadius, rightTopCornerRadius, leftBottomCornerRadius, rightBottomCornerRadius))
+                    getDrawable(rippleColor, cornerRadius, leftTopCornerRadius, rightTopCornerRadius, leftBottomCornerRadius, rightBottomCornerRadius)
+            )
         }
 
         private fun getStrokeDrawable(color: Int, cornerRadius: Float, strokeWidth: Int, strokeColor: Int): Drawable {

@@ -6,6 +6,8 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.util.LruCache
+import belp.base.imageloader.BitmapCallback
+import belp.base.imageloader.FileSynchronizer
 import belp.base.imageloader.LoadInformationKeeper
 import java.lang.ref.WeakReference
 import java.util.*

@@ -1,4 +1,4 @@
-package com.base.fragment
+package belp.base.fragment
 
 import belp.base.fragment.BaseFragment
 import java.lang.ref.WeakReference
@@ -27,7 +27,6 @@ class WaitThread(fragment: BaseFragment<*, *>) : Thread() {
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }
-
             }
 
             if (isStopped)

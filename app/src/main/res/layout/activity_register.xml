@@ -7,6 +7,8 @@
         <variable
                 name="viewModel"
                 type="belp.myapplication.register.RegisterViewModel"/>
+
+        <variable name="item" type="belp.data.model.CreatedUser"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_username"
                 android:hint="@string/username"
-                android:text="@={viewModel.userName}"
+                android:text="@={item.userName}"
                 app:layout_constraintTop_toBottomOf="@+id/im_avatar"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -42,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_name"
                 android:hint="@string/name"
-                android:text="@={viewModel.name}"
+                android:text="@={item.name}"
                 app:layout_constraintTop_toBottomOf="@+id/et_username"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_email"
                 android:hint="@string/email"
-                android:text="@={viewModel.email}"
+                android:text="@={item.emailAddress}"
                 app:layout_constraintTop_toBottomOf="@+id/et_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -63,7 +65,7 @@
                 android:id="@+id/et_password"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:text="@={viewModel.password}"
+                android:text="@={item.password}"
                 app:layout_constraintTop_toBottomOf="@+id/et_email"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -78,7 +80,7 @@
                 android:gravity="center"
                 app:rb_normal_color="@color/colorBlue"
                 android:text="@string/create"
-                android:onClick="@{() -> viewModel.onRegister()}"
+                android:onClick="@{() -> viewModel.onRegister(item)}"
                 app:layout_constraintTop_toBottomOf="@+id/et_password"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>

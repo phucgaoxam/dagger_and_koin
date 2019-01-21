@@ -1,4 +1,4 @@
-package com.base.fragment
+package belp.base.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
-    baseFeature false
+    baseFeature true
 
     defaultConfig {
         minSdkVersion 19
@@ -18,6 +18,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled true
     }
 }
 
@@ -36,6 +40,14 @@ dependencies {
     api 'com.google.dagger:dagger:2.16'
     kapt 'com.google.dagger:dagger-compiler:2.16'
     //kapt 'com.google.dagger:dagger-android-processor:2.16'
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    implementation 'org.koin:koin-android:1.0.2'
+    // or Koin for Lifecycle scoping
+    implementation 'org.koin:koin-android-scope:1.0.2'
+    // or Koin for Android Architecture ViewModel
+    implementation 'org.koin:koin-android-viewmodel:1.0.2'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'

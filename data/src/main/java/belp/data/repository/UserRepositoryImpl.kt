@@ -10,12 +10,12 @@ import io.reactivex.schedulers.Schedulers
 
 class UserRepositoryImpl(private val mServerServices: ServerServices) : UserRepository {
     override fun register(registerRequest: RegisterRequest): Single<RegisterResponse> {
-        return mServerServices.register(registerRequest).filter { it != null }.toSingle()
+        return mServerServices.register(registerRequest)
             .subscribeOn(Schedulers.io())
     }
 
     override fun login(loginRequest: LoginRequest): Single<LoginResponse> {
-        return mServerServices.login(loginRequest).filter { it != null }.toSingle()
+        return mServerServices.login(loginRequest)
             .subscribeOn(Schedulers.io())
     }
 }

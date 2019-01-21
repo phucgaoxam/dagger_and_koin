@@ -26,6 +26,5 @@ class VerticalLinearItemDecoration(
         if (itemPosition == parent.adapter!!.itemCount - 1) {
             outRect.bottom = mBottomSpace
         }
-
     }
 }

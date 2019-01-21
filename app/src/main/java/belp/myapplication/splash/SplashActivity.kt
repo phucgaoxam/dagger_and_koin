@@ -2,6 +2,7 @@ package belp.myapplication.splash
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.Lifecycle
 import belp.base.activity.BaseActivity
 import belp.myapplication.R
 import belp.myapplication.databinding.ActivitySplashBinding
@@ -11,7 +12,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
+class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), SplashView {
+
     override fun getLayoutId(): Int = R.layout.activity_splash
 
     override fun getViewModelClass(): Class<SplashViewModel>? = SplashViewModel::class.java
@@ -26,7 +28,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         val action = { startApp() }
         val completable = Completable.fromAction(action)
         completable
-            .delaySubscription(4, TimeUnit.SECONDS)
+            .delaySubscription(3, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread()).subscribe()
     }

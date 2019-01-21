@@ -7,6 +7,7 @@ import belp.base.activity.BaseInjectingActivity
 import belp.data.common.SharePreferenceManager
 import belp.data.domain.AppDomain
 import belp.data.model.Device
+import belp.data.model.LoginRequest
 import belp.data.model.LoginResponse
 import belp.myapplication.App
 import belp.myapplication.R
@@ -18,13 +19,13 @@ import javax.inject.Named
 /**
  * Created by BelP on 09/12/2018.
  */
-class LoginActivity : BaseInjectingActivity<ActivityLoginBinding, LoginViewModel, LoginComponent>(),
-    LoginView {
+class LoginActivity : BaseInjectingActivity<ActivityLoginBinding, LoginViewModel, LoginComponent>(), LoginView {
 
     override fun onRegister() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
+
 
     override fun onLoginSuccess(loginResponse: LoginResponse) {
         Log.e("login", "login success: ${loginResponse.accessToken}")
@@ -51,6 +52,7 @@ class LoginActivity : BaseInjectingActivity<ActivityLoginBinding, LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mViewDataBinding.loginRequest = LoginRequest()
         mViewDataBinding.viewModel = mViewModel
     }
 

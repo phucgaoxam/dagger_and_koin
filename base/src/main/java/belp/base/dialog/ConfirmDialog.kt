@@ -73,7 +73,7 @@ class ConfirmDialog(context: Context) : BaseDialog<DialogConfirmBinding>(context
         mNoButtonText = noText
         mTag = tag
         setCancelable(cancelable)
-        super.show()
+       // super.show()
     }
 
     fun onYesClicked() {

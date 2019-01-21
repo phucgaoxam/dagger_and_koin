@@ -1,4 +1,4 @@
-package com.base.recyclerview
+package belp.base.recyclerview
 
 /**
  * Created by vophamtuananh on 1/12/18.

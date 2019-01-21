@@ -1,7 +1,6 @@
-package com.base.fragment
+package belp.base.fragment
 
 import androidx.fragment.app.FragmentManager
-import belp.base.fragment.BaseFragment
 import java.util.*
 
 /**

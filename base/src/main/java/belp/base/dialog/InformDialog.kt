@@ -70,7 +70,7 @@ class InformDialog(context: Context) : BaseDialog<DialogInformBinding>(context) 
         mButtonText = buttonText
         mTag = tag
         setCancelable(cancelable)
-        super.show()
+       // super.show()
     }
 
     interface OnConfirmListener {

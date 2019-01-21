@@ -2,17 +2,16 @@ package belp.myapplication.register
 
 import android.util.Log
 import androidx.databinding.ObservableField
+import androidx.databinding.ViewDataBinding
 import belp.base.viewmodel.ActivityViewModel
 import belp.data.domain.AppDomain
+import belp.data.model.CreatedUser
 import belp.data.model.RegisterRequest
+import belp.myapplication.databinding.ActivityRegisterBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class RegisterViewModel : ActivityViewModel() {
-    val userName = ObservableField("")
-    val name = ObservableField("")
-    val password = ObservableField("")
-    val email = ObservableField("")
 
     private lateinit var mAppDomain: AppDomain
     private lateinit var mTenantToken: String
@@ -22,17 +21,17 @@ class RegisterViewModel : ActivityViewModel() {
         mTenantToken = tenantToken
     }
 
-    fun onRegister() {
+    fun onRegister(createdUser: CreatedUser) {
         val view: RegisterView? = view()
 
         view?.let {
             val request = RegisterRequest(
                 "http://www.wjacommunications.com/wp-content/uploads/2018/11/cat.jpg",
-                userName.get()!!,
-                name.get()!!,
-                name.get()!!,
-                email.get()!!,
-                password.get()!!,
+                createdUser.userName,
+                createdUser.name,
+                createdUser.name,
+                createdUser.emailAddress,
+                createdUser.password,
                 mTenantToken
             )
 
@@ -47,7 +46,8 @@ class RegisterViewModel : ActivityViewModel() {
                         { error ->
                             Log.e("error register", "${error.message} - ${error.stackTrace}")
                             view.showError(error)
-                        })
+                        }
+                    )
             )
         }
     }

@@ -39,6 +39,7 @@ class RegisterActivity : BaseInjectingActivity<ActivityRegisterBinding, Register
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mViewDataBinding.item = CreatedUser()
         mViewDataBinding.viewModel = mViewModel
     }
 
