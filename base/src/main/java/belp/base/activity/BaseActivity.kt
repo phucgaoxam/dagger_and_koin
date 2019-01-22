@@ -116,7 +116,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ActivityViewModel> : AppCo
         }
         return try {
             super.dispatchTouchEvent(event)
-        } catch (e: Exception) {
+        } catch (ex: Exception) {
             true
         }
 

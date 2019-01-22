@@ -26,7 +26,6 @@ class LoginActivity : BaseInjectingActivity<ActivityLoginBinding, LoginViewModel
         startActivity(intent)
     }
 
-
     override fun onLoginSuccess(loginResponse: LoginResponse) {
         Log.e("login", "login success: ${loginResponse.accessToken}")
     }

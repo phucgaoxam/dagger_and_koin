@@ -12,7 +12,7 @@
 
         <variable
                 name="viewModel"
-                type="belp.myapplication.koin.LoginViewModel"/>
+                type="belp.myapplication.koin.login.LoginViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +20,15 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/positive_30dp"
             android:layout_marginStart="@dimen/positive_30dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/koin"
+                android:textSize="@dimen/text_size_15sp"
+                app:layout_constraintBottom_toTopOf="@id/im_logo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/im_logo"

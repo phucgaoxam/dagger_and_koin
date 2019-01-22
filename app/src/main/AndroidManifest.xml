@@ -17,13 +17,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
-        <activity android:name=".register.RegisterActivity">
+        <activity android:name=".koin.register.RegisterActivity">
 
         </activity>
         <activity android:name=".splash.SplashActivity">
@@ -40,9 +36,14 @@
                 android:theme="@style/Theme.MyCustomTheme">
 
         </activity>
-        <activity android:name=".koin.LoginActivity">
+        <activity android:name=".koin.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
+        <activity android:name=".register.RegisterActivity"></activity>
     </application>
 
 </manifest>

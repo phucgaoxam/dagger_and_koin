@@ -55,24 +55,32 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-common:2.0.0'
     api 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     api 'androidx.lifecycle:lifecycle-reactivestreams:2.0.0'
+
     //dagger
     api 'com.google.dagger:dagger:2.16'
     kapt 'com.google.dagger:dagger-compiler:2.16'
     //kapt 'com.google.dagger:dagger-android-processor:2.16'
+
     //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+
+    //rxBinding
     api 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
+
+    //Koin
     api 'org.koin:koin-android:1.0.2'
-    // or Koin for Lifecycle scoping
     api 'org.koin:koin-android-scope:1.0.2'
-    // or Koin for Android Architecture ViewModel
+    api 'org.koin:koin-java:1.0.2'
     api 'org.koin:koin-android-viewmodel:1.0.2'
+
+    //firebase ml kit
     implementation 'com.google.firebase:firebase-ml-vision:18.0.2'
     implementation 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:17.0.2'
     implementation 'com.google.firebase:firebase-ml-model-interpreter:16.2.4'
+
     implementation project(path: ':base')
     implementation project(path: ':data')
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

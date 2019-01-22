@@ -8,14 +8,23 @@
                 name="viewModel"
                 type="belp.myapplication.register.RegisterViewModel"/>
 
-        <variable name="item" type="belp.data.model.CreatedUser"/>
+        <variable name="model" type="belp.data.model.CreatedUser"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/positive_30dp"
             android:layout_marginStart="@dimen/positive_30dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dagger"
+                android:textSize="@dimen/text_size_15sp"
+                app:layout_constraintBottom_toTopOf="@id/im_avatar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
         <belp.base.widgets.CircleImageView
                 android:onClick="@{() -> viewModel.onChooseAvatar()}"
@@ -34,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_username"
                 android:hint="@string/username"
-                android:text="@={item.userName}"
+                android:text="@={model.userName}"
                 app:layout_constraintTop_toBottomOf="@+id/im_avatar"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -44,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_name"
                 android:hint="@string/name"
-                android:text="@={item.name}"
+                android:text="@={model.name}"
                 app:layout_constraintTop_toBottomOf="@+id/et_username"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -54,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_email"
                 android:hint="@string/email"
-                android:text="@={item.emailAddress}"
+                android:text="@={model.emailAddress}"
                 app:layout_constraintTop_toBottomOf="@+id/et_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -65,7 +74,7 @@
                 android:id="@+id/et_password"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:text="@={item.password}"
+                android:text="@={model.password}"
                 app:layout_constraintTop_toBottomOf="@+id/et_email"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
@@ -80,7 +89,7 @@
                 android:gravity="center"
                 app:rb_normal_color="@color/colorBlue"
                 android:text="@string/create"
-                android:onClick="@{() -> viewModel.onRegister(item)}"
+                android:onClick="@{() -> viewModel.onRegister(model)}"
                 app:layout_constraintTop_toBottomOf="@+id/et_password"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>

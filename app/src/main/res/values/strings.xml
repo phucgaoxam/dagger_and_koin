@@ -10,6 +10,8 @@
     <string name="create">Create</string>
     <string name="remember">Remember password?</string>
     <string name="temp">Temp</string>
+    <string name="koin">Koin</string>
+    <string name="dagger">Dagger</string>
 
     <string name="chat_app_name">STS Chat</string>
     <string name="chat_language">en</string>

@@ -59,6 +59,7 @@ private fun debug(): Boolean {
     return true
 }
 
+
 private fun okHttpClient(
     context: Context,
     sharedPreferenceManager: SharePreferenceManager,
@@ -98,6 +99,6 @@ private fun getTenantToken(): String {
     return TENANT_TOKEN
 }
 
-fun baseUrl(debug: Boolean): String {
+private fun baseUrl(debug: Boolean): String {
     return PRO_DOMAIN
 }

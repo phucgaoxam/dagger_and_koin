@@ -1,19 +1,17 @@
 package belp.myapplication
 
 import android.app.Activity
-import android.app.Application
-import android.util.Log
 import androidx.multidex.MultiDexApplication
 import belp.base.injection.module.AppContextModule
+import belp.base.injection.module.ImageLoaderModule
 import belp.data.common.AppComponent
 import belp.data.common.AppModule
 import belp.data.common.DaggerAppComponent
-import belp.base.injection.module.ImageLoaderModule
 import belp.data.koin.app
-import belp.data.koin.appModule
-import belp.myapplication.koin.loginModule
-import org.koin.android.ext.android.get
+import belp.myapplication.koin.login.loginModule
+import belp.myapplication.koin.register.registerModule
 import org.koin.android.ext.android.startKoin
+import org.koin.android.logger.AndroidLogger
 
 /**
  * Created by BelP on 07/12/2018.
@@ -30,9 +28,7 @@ class App : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, app + loginModule)
-        val s = get<String>(name = "tenantToken")
-        Log.e("baseUrl", s)
+        startKoin(this, app + loginModule + registerModule, logger = AndroidLogger(showDebug = true))
 
         appComponent = DaggerAppComponent.builder().appModule(AppModule())
             .imageLoaderModule(ImageLoaderModule())

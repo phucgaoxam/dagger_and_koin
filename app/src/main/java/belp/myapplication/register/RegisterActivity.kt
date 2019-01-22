@@ -2,6 +2,7 @@ package belp.myapplication.register
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import belp.base.activity.BaseInjectingActivity
 import belp.data.domain.AppDomain
 import belp.data.model.CreatedUser
@@ -14,6 +15,10 @@ import javax.inject.Named
 
 class RegisterActivity : BaseInjectingActivity<ActivityRegisterBinding, RegisterViewModel, RegisterComponent>(),
     RegisterView {
+
+    @field:[Inject Named("className")]
+    lateinit var mClassName: String
+
     override fun getViewModelClass(): Class<RegisterViewModel>? = RegisterViewModel::class.java
 
     override fun chooseImage() {
@@ -23,7 +28,7 @@ class RegisterActivity : BaseInjectingActivity<ActivityRegisterBinding, Register
     override fun createComponent(): RegisterComponent? {
         return DaggerRegisterComponent.builder()
             .appComponent(App.get(this).component())
-            .registerModule(RegisterModule())
+            .registerModule(RegisterModule(this))
             .build()
     }
 
@@ -39,8 +44,10 @@ class RegisterActivity : BaseInjectingActivity<ActivityRegisterBinding, Register
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewDataBinding.item = CreatedUser()
+        mViewDataBinding.model = CreatedUser()
         mViewDataBinding.viewModel = mViewModel
+
+        Log.e("className", mClassName)
     }
 
     @Inject

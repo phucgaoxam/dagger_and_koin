@@ -44,9 +44,7 @@ dependencies {
     kapt 'com.android.databinding:compiler:3.1.4'
 
     implementation 'org.koin:koin-android:1.0.2'
-    // or Koin for Lifecycle scoping
     implementation 'org.koin:koin-android-scope:1.0.2'
-    // or Koin for Android Architecture ViewModel
     implementation 'org.koin:koin-android-viewmodel:1.0.2'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'

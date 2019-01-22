@@ -1,2 +1,0 @@
-package belp.data.koin
-

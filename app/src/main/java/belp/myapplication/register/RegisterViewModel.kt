@@ -1,13 +1,11 @@
 package belp.myapplication.register
 
 import android.util.Log
-import androidx.databinding.ObservableField
-import androidx.databinding.ViewDataBinding
 import belp.base.viewmodel.ActivityViewModel
 import belp.data.domain.AppDomain
 import belp.data.model.CreatedUser
 import belp.data.model.RegisterRequest
-import belp.myapplication.databinding.ActivityRegisterBinding
+import belp.myapplication.koin.register.RegisterView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

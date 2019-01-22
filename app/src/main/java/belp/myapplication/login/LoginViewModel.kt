@@ -9,8 +9,6 @@ import belp.data.model.Device
 import belp.data.model.LoginRequest
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
-import javax.inject.Named
 
 /**
  * Created by BelP on 09/12/2018.
@@ -41,7 +39,6 @@ class LoginViewModel : ActivityViewModel() {
 
     fun onLogin(loginRequest: LoginRequest) {
         val view: LoginView? = view()
-        Log.e("login", "login")
         loginRequest.tenantToken = mTenantToken
         loginRequest.device = mDevice
         view?.let {
