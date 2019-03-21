@@ -28,8 +28,11 @@ class App : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+
+        ///Start Koin
         startKoin(this, app + loginModule + registerModule, logger = AndroidLogger(showDebug = true))
 
+        ///Init AppComponent
         appComponent = DaggerAppComponent.builder().appModule(AppModule())
             .imageLoaderModule(ImageLoaderModule())
             .appContextModule(AppContextModule(applicationContext)).build()

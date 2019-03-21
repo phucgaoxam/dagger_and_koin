@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -9,17 +8,22 @@
                 type="belp.myapplication.splash.SplashViewModel"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <belp.base.widgets.CircleImageView
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:src="@mipmap/ic_launcher_round"
-                android:layout_width="@dimen/positive_100dp"
-                android:layout_height="@dimen/positive_100dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+                android:text="@string/koin"
+                android:onClick="@{() -> viewModel.koin()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:onClick="@{() -> viewModel.dagger()}"
+                android:text="@string/dagger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

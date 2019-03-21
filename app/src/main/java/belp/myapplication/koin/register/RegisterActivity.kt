@@ -43,7 +43,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterKoinBinding, RegisterViewM
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //bindScope(getOrCreateScope("register"))
         mScope = getOrCreateScope("register")
         bindScope(mScope)
         super.onCreate(savedInstanceState)

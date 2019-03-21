@@ -12,7 +12,7 @@
 
         <variable
                 name="viewModel"
-                type="belp.myapplication.login.LoginViewModel"/>
+                type="belp.myapplication.dagger.login.LoginViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

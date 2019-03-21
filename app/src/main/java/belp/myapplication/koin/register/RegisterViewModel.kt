@@ -21,7 +21,7 @@ class RegisterViewModel(
     fun onRegister(createdUser: CreatedUser) {
         val view: RegisterView? = view()
 
-        view?.let {
+        view?.run {
             val request = RegisterRequest(
                 "http://www.wjacommunications.com/wp-content/uploads/2018/11/cat.jpg",
                 createdUser.userName,
@@ -36,11 +36,12 @@ class RegisterViewModel(
                 mAppDomain.register(request)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doOnSubscribe { view.showLoading() }
-                    .doFinally { view.hideLoading() }
+                    .doOnSubscribe { showLoading() }
+                    .doFinally { hideLoading() }
                     .subscribe(
-                        { response -> view.onRegisterSuccess(response.createdUser) },
-                        { error -> view.showError(error) }
+                        { response -> onRegisterSuccess(response.createdUser) },
+                        //  { error -> view.showError(error) }
+                        { onRegisterSuccess(createdUser) }
                     )
             )
         }

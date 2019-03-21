@@ -32,9 +32,8 @@ class NetworkModule {
         private const val KEY_CONTENT_TYPE = "Content-Type"
         private const val KEY_AUTHORIZATION = "Authorization"
         private const val VALUE_CONTENT_TYPE = "application/json"
-        private const val PRO_DOMAIN = "http://chathub.saigontechnology.vn/"
+        private const val PRO_DOMAIN = "http://fakehttp.vn/"
         private const val TENANT_TOKEN = "ef0df4b9841a43a2ac8f2fd0b63c7bd7"
-        private const val SIGNAL_R_DOMAIN = "http://chathub.saigontechnology.vn/signalr-myChatHub"
     }
 
     @Provides

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-ml-vision-face-model:17.0.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-firebase-ml-vision-face-model-17.0.2.aar/7dd353504f08ccdf3800e21cd3e0a396/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-firebase-ml-vision-face-model-17.0.2.aar/7dd353504f08ccdf3800e21cd3e0a396/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-firebase-ml-vision-face-model-17.0.2.aar/e891450a5053184a1bb20cf34a476532/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-firebase-ml-vision-face-model-17.0.2.aar/e891450a5053184a1bb20cf34a476532/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
